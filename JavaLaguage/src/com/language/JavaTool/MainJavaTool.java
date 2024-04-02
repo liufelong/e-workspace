@@ -101,6 +101,9 @@ public class MainJavaTool {
 		
 		System.out.println();
 		DateClass.gregorianCalendar139();
+		
+		System.out.println();
+		DateClass.calendarShowTime140();
 	}
 	
 }
