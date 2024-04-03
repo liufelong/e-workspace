@@ -182,6 +182,27 @@ public final void set(int year, int month, int date, int h, int m, int s) //设�
 			System.out.print(calendar.getTime().getDate() + "\t");
 			count++;
 		}
+//		Calendar calendar = Calendar.getInstance();				// 获取一个Calendar对象
+//		int count = 0;										// 定义一个计数变量
+//		calendar.set(Calendar.YEAR, 2012);						// 设置年份
+//		calendar.set(Calendar.MONTH, 11);						// 设置月份
+//		calendar.set(Calendar.DATE, 10);						// 设置日期
+//		System.out.println("2012年11月10号一周内的日历如下：");
+//		System.out.println("星期日\t星期一\t星期二\t星期三\t星期四\t星期五\t星期六");
+//		while (count < 7) {
+//			calendar.add(Calendar.DAY_OF_MONTH, 1);			// 设置添加日历的周期为1
+//			int day = calendar.getTime().getDay();	// 获取日历的星期几表示数，例如：0：表示星期日
+//			if (count == 0) {									// 根据星期几来决定输入几个tab
+//				for (int i = 0; i < day; i++) {
+//					System.out.print("\t");
+//				}
+//			}
+//			if (day == 0) {									// 如果是周日了则换行
+//				System.out.println();
+//			}
+//			System.out.print(calendar.getTime().getDate() + "\t");	// 获取日历中日期数
+//			count++;
+//		}
 		
 	}
 	
