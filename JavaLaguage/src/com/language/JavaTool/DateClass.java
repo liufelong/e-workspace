@@ -3,6 +3,7 @@ package com.language.JavaTool;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Formatter;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
@@ -184,5 +185,29 @@ public final void set(int year, int month, int date, int h, int m, int s) //设�
 		}
 		
 	}
+	
+	public static void formatterOut141() {
+		/**
+		 * 相信大家对System.out.printlu()方法都很熟悉，这是一种可以控制输出格式的方法。
+		 * 而在JDK 1.4之后，如果需要格式化输出，还可以使用Formatter类。
+		 * Formatter类比print()方法功能更强，不仅可以用于控制台的输出，也可以用于GUI窗口程序的输出。
+		 * */
+	}
+	
+	public static void useFormatterOutTime142() {
+		System.out.println("使用Formatter.format输出日期");
+		Formatter formatter = new Formatter(System.out);
+		
+		Date date = new Date();
+		formatter.format("现在的日期和时间（以默认的完整格式）：%tc\n", date);
+		formatter.format("今天的日期(按照中国人的习惯)：%1$tY-%1$tm-%1$td", date);
+		formatter.format("今天是：%tA\n", date);
+		formatter.format("现在的时间（24小时制）:%tT\n",date);
+		formatter.format("现在的时间（12小时制）:%tr\n",date);
+		formatter.format("现在是：%tH点%1$tM分%1$tS秒",date);
+
+	}
+	
+	
 	
 }

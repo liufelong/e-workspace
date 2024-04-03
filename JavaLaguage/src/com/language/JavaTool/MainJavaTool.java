@@ -16,7 +16,9 @@ public class MainJavaTool {
 		
 //		randomCode135();
 		
-		dateClass136_143();
+//		dateClass136_143();
+		
+		systemClass143_144();
 	}
 	
 	//四舍五入算法
@@ -104,6 +106,17 @@ public class MainJavaTool {
 		
 		System.out.println();
 		DateClass.calendarShowTime140();
+		
+		System.out.println();
+		DateClass.useFormatterOutTime142();
+		
+	}
+	
+	public static void systemClass143_144() {
+		
+		SystemClass.currentTimeMillis143();
+		
+		SystemClass.systemInfo144();
 	}
 	
 }
