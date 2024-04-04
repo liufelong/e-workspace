@@ -2,6 +2,9 @@ package com.language.JavaTool;
 
 import java.math.BigInteger;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.CountDownLatch;
 
 public class MainJavaTool {
 
@@ -18,7 +21,9 @@ public class MainJavaTool {
 		
 //		dateClass136_143();
 		
-		systemClass143_144();
+//		systemClass143_144();
+		
+		timeTest145();
 	}
 	
 	//四舍五入算法
@@ -117,6 +122,41 @@ public class MainJavaTool {
 		SystemClass.currentTimeMillis143();
 		
 		SystemClass.systemInfo144();
+	}
+	
+	public static void timeTest145() {
+		/**
+		 * 1、当变量被声明为`final`时，意味着该变量的值是不可更改的。
+		 *    这有助于确保数据的完整性和安全性，避免意外的修改。
+		 * 2、将方法声明为`final`表示该方法不能被子类重写。
+		 *    这有助于保持方法的稳定性和安全性，确保父类中已经实现的逻辑不会被子类修改。
+		 * 3、当一个类被声明为`final`时，表示该类不能被继承。
+		 *    这有助于防止对类的修改和扩展，确保类的行为不会被修改。
+		 * */
+		final Timer timer = new Timer(); // 声明一个计时器 Timer
+		final TimerTask task = new TimerTask() {
+			int count = 3;
+			// 声明一个计时器任务 TimerTask
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				try {
+					Thread.sleep(1000);
+					System.out.println("sleep.....");
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				if (--count <= 0) {
+					System.out.println("time canceld.");
+					this.cancel();// 取消该任务
+					timer.cancel();// 取消定时器
+				}
+			}
+		};
+		// 设定计时器。100毫秒后启动计时器任务，每隔1000毫秒再启动一次
+		timer.schedule(task, 100,1000);
 	}
 	
 }
