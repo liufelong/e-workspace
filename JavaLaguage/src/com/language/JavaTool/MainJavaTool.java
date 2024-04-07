@@ -23,7 +23,9 @@ public class MainJavaTool {
 		
 //		systemClass143_144();
 		
-		timeTest145();
+//		timeTest145();
+		
+		runtime_memory146();
 	}
 	
 	//四舍五入算法
@@ -159,5 +161,27 @@ public class MainJavaTool {
 		// 设定计时器。100毫秒后启动计时器任务，每隔1000毫秒再启动一次
 		timer.schedule(task, 100,1000);
 	}
+	
+	public static void runtime_memory146() {
+		try {
+			// 获取与当前运行类相关联的runtime实例
+			Runtime runtime = Runtime.getRuntime();
+			
+			System.out.println("内存可用空间：" + runtime.totalMemory());
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		/**
+		 * 利用Runtime对象的totalMemory()来获取虚拟机的总内存。
+		 * 利用Runtime对象的freeMemory()来获取虚拟机的空闲内存的大小。
+		 * 利用Runtime对象的get()来启动垃圾收集线程。
+		 * */
+	}
+	
+	/**
+	 * 正则表达式 暂时跳过
+	 * */
 	
 }
