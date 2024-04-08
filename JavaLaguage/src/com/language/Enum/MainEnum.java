@@ -32,7 +32,11 @@ public class MainEnum {
 		
 //		enumSet153();
 		
-		enumMap154();
+//		enumMap154();
+		
+//		genericityStack155();
+		
+		genericsTwo156();
 	}
 	
 	public static void enumDemo150() {
@@ -161,7 +165,42 @@ public class MainEnum {
 		put(K key,V value)			创建一个EnumMap中存入键为key，值为value的键值对
 		get(Object key)				获得键key对应的值
 		size()						查看EnumMap中键值对的个数
-		remove (Object key)			从EnumMap中删除键为Kkey的键值对
+		remove (Object key)			从EnumMap中删除键为key的键值对
 		 * */
 	}
+	
+	public static void genericityStack155() {
+		//泛型的目的就是定义的集合内所放的元素是统一的类型
+		
+		//使用泛型实现栈结构
+		Stack<String> stack = new Stack<String>();
+		System.out.println("向栈中添加字符串：");
+		System.out.println("三国演义");
+		System.out.println("西游记");
+		System.out.println("红楼梦");
+		System.out.println("水浒传");
+		
+		stack.push("三国演义");
+		stack.push("西游记");
+		stack.push("红楼梦");
+		stack.push("水浒传");
+		
+		System.out.println("从栈中取出字符串："); 			// 从栈中取出字符串
+		while(!stack.empty()) {
+			System.out.println(stack.pop());
+		}
+	}
+	
+	public static void genericsTwo156() {
+		//带有两个参数的泛型应用
+		Generics<Integer, Double> generics = new Generics<Integer, Double>(100, 12.23);
+		generics.printTypes();
+		
+		int num = generics.getT();
+		System.out.println("num 变量中的值为：" + num);
+		
+		double dou = generics.getV();
+		System.out.println("dou 变量中的值为：" + dou);
+	}
+	
 }
