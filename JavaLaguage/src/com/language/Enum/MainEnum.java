@@ -2,9 +2,12 @@ package com.language.Enum;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainEnum {
@@ -36,7 +39,9 @@ public class MainEnum {
 		
 //		genericityStack155();
 		
-		genericsTwo156();
+//		genericsTwo156();
+		
+		genericWildcard157();
 	}
 	
 	public static void enumDemo150() {
@@ -201,6 +206,35 @@ public class MainEnum {
 		
 		double dou = generics.getV();
 		System.out.println("dou 变量中的值为：" + dou);
+	}
+	
+	//使用通配符增强泛型
+	public static Object getMiddle(List<? extends Number> list) {
+		return list.get(list.size() / 2); // 返回列表的中间值
+	}
+	public static void genericWildcard157() {
+		/**
+		 * 泛型一个重要的特点是可以使用“？”作为通配符来匹配任何数据类型。
+		 * 常用的泛型通配符主要有三种：无界通配符“？”、上限通配符extends和下限通配符super。
+		 * */
+		//使用通配符增强泛型
+		List<Integer> ints = new ArrayList<Integer>();
+		ints.add(1);
+		ints.add(2);
+		ints.add(3);
+		ints.add(4);
+		ints.add(5);
+		System.out.println("整型列表元素：");
+		System.out.println(Arrays.toString(ints.toArray()));
+		System.out.println("整型列表的中间数: " + getMiddle(ints));
+		
+		List<Double> doubles = new ArrayList<Double>();
+		doubles.add(1.1);
+		doubles.add(2.2);
+		doubles.add(3.3);
+		System.out.println("浮点列表的元素：");
+		System.out.println(Arrays.toString(doubles.toArray()));
+		System.out.println("浮点列表的中间数：" + getMiddle(doubles));
 	}
 	
 }
