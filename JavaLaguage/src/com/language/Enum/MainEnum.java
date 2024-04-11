@@ -46,7 +46,11 @@ public class MainEnum {
 		
 //		genericMethods158();
 		
-		genericInterface159();
+//		genericInterface159();
+		
+//		genericClass160();
+		
+		hashtable161();
 	}
 	
 	public static void enumDemo150() {
@@ -295,6 +299,30 @@ public class MainEnum {
 		 * */
 	}
 	
+	public static void genericClass160() {
+		/**
+		 * 泛型类的子类必须将泛型父类所需要的参数类型，沿着继承链向上传递。
+		 * */
+		System.out.println("以泛型类为父类的实现方法如下：");
+		// 创建子类的对象，它需要传递两个参数，Date类型给父类，自己使用String类型
+		Date date = new Date();
+		GenericChild<Date, String> cdChild = new GenericChild<Date, String>(date, "当前系统的时间为：");
+		System.out.print("\t" + cdChild.getDob());
+		System.out.println(cdChild.getOb());
+	}
 	
+	public static void hashtable161() {
+		/**
+		 * Hashtable是Dictionary类的具体体现，它封装了哈希表的数据结构和算法，功能上和HashMap相同。
+		 * 由于Hashtable使用了同步机制以保护线程安全，所以它的运行效率要比HashMap低。
+		 * 
+		 * Hashtable的使用方法和HashMap类似
+		 * Hashtable最好在多线程的情况下使用，否则就无法体现它的同步机制保护线程安全的优势了。
+		 * */
+		HashtableGeneric<String, String> tGeneric = new HashtableGeneric<String, String>();
+		tGeneric.put("key", "I love Java");
+		String string = tGeneric.get("key");
+		System.out.println("根据key获取的value的内容：\n\t" + string);
+	}
 	
 }
