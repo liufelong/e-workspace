@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Iterator;
@@ -41,7 +42,11 @@ public class MainEnum {
 		
 //		genericsTwo156();
 		
-		genericWildcard157();
+//		genericWildcard157();
+		
+//		genericMethods158();
+		
+		genericInterface159();
 	}
 	
 	public static void enumDemo150() {
@@ -232,9 +237,64 @@ public class MainEnum {
 		doubles.add(1.1);
 		doubles.add(2.2);
 		doubles.add(3.3);
-		System.out.println("浮点列表的元素：");
+		System.out.println("\n浮点列表的元素：");
 		System.out.println(Arrays.toString(doubles.toArray()));
 		System.out.println("浮点列表的中间数：" + getMiddle(doubles));
 	}
+	
+	// 定义泛型方法，有一个形式参数用类型参数T来定义
+	public static <T> void genericMethods(T t, char n) {
+		T t1 = t;// 局部变量也可以用类型参数T来定义
+		System.out.println("[1]" + n + "的对象类型为" + t1.getClass().getName());
+	}
+	public static <T> void genericMethods(T t) {
+		System.out.println("[1]" + t + "的对象类型为" + t.getClass().getName());
+	}
+	
+	public static void genericMethods158() {
+		Date date = new Date();
+		Character k = new Character('A');
+		// 用两种不同的方法调用泛型方法
+		MainEnum.<Character> genericMethods(k, 'B');
+		genericMethods(date);
+		
+		/**
+		 * 声明泛型方法时，要注意以下几点：
+			（1）使用<T>格式来表示泛型参数，参数的个数可以不是一个。
+			（2）类型参数列表要放在访问权限修饰符、static和final之后。
+			（3）类型参数列表要放在返回值类型、方法名称、方法参数之后。
+		 * */
+	}
+	
+	public static void genericInterface159() {
+		Double doubleArrays[] = {35.8, 58.45, 96.34, 58.214,635.2, 1.124,
+				510.89 };	// 创建一个Double类型的数组并初始化
+		// 创建一个Character类型的数组并初始化
+		Character charArrays[] = { 'A', 'B', 'b', 'Z', 'c', 'C', 'e' };	
+		
+		// 创建Double类型的泛型对象
+		ComparableElement<Double> iob = new ComparableElement<Double>(doubleArrays);
+		
+		// 创建Character类型的泛型对象
+		ComparableElement<Character> cob = new ComparableElement<Character>(charArrays);
+		
+		System.out.println("double数组中的最大值，max = " + iob.max());
+		System.out.println("double数组中的最小值，min = " + iob.min());
+		
+		System.out.println("character数组中的最大值，max = " + cob.max());
+		System.out.println("character数组中的最小值，min = " + cob.min());
+		
+		/**
+		 * 在使用泛型接口时我们要注意以下几点，这也是使用所有泛型要注意的地方：
+		 * （1）泛型的类型参数只能是类类型，包括自定义类，不能是简单类型。
+		 * （2）同一种泛型可以对应多个版本，因为参数类型是不确定的，不同版本的泛型类实例是不兼容的。
+		 * （3）泛型的类型参数可以有多个。
+		 * （4）泛型的参数类型可以使用extends语句，例如<T extends superclass>。习惯上称为“有界类型”。
+		 * （5）泛型的参数类型还可以是通配符类型，
+		 * 		例如Class<?> classType = Class.forName("java.lang.String");。
+		 * */
+	}
+	
+	
 	
 }
